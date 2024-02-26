@@ -2,6 +2,7 @@ import { BaseEntity } from './BaseEntity.js';
 import { UserDTO } from '../DTOs/UserDTO.js';
 
 export class User implements BaseEntity {
+    private id: number;
     private name: string;
     private lastname: string;
     private username: string;
@@ -10,6 +11,7 @@ export class User implements BaseEntity {
     private created: Date;
 
     constructor(userData: UserDTO) {
+        this.id = userData.id;
         this.name = userData.name;
         this.lastname = userData.lastname;
         this.username = userData.username;
@@ -19,7 +21,8 @@ export class User implements BaseEntity {
     }
 
     toDTO(): UserDTO {
-        const result: UserDTO = {
+        return {
+            id: this.id,
             name: this.name,
             lastname: this.lastname,
             username: this.username,
@@ -27,6 +30,5 @@ export class User implements BaseEntity {
             phone: this.phone,
             created: this.created,
         };
-        return result;
     }
 }

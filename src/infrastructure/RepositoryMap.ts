@@ -6,10 +6,11 @@ import { IUserRepository } from '../domain/ports/repositories/IUserRepository.js
 /**
  * Simulated database object for fetching user data.
  */
-const mockedDB     = {
+const mockedDB = {
     async getUsers(): Promise<Array<UserDTO>> {
         return [
             {
+                id: 1,
                 name: 'John',
                 lastname: 'Doe',
                 username: 'johndoe9999',
@@ -18,6 +19,7 @@ const mockedDB     = {
                 created: new Date('2024-03-24'),
             },
             {
+                id: 2,
                 name: 'Marie',
                 lastname: 'Foe',
                 username: 'mariefoe8888',
@@ -26,6 +28,7 @@ const mockedDB     = {
                 created: new Date('2023-09-01'),
             },
             {
+                id: 3,
                 name: 'Felix',
                 lastname: 'Montero',
                 username: '123felixblabla',
@@ -34,6 +37,7 @@ const mockedDB     = {
                 created: new Date('2022-03-17'),
             },
             {
+                id: 4,
                 name: 'Jair',
                 lastname: 'Bolsonaro',
                 username: 'pior_presidente_da_história',
@@ -42,6 +46,7 @@ const mockedDB     = {
                 created: new Date('2018-10-30'),
             },
             {
+                id: 5,
                 name: 'Max',
                 lastname: 'Ticson',
                 username: 'best_max03',
@@ -50,8 +55,8 @@ const mockedDB     = {
                 created: new Date('2024-01-06'),
             },
         ];
-    }
-}
+    },
+};
 
 export const repositoryMap: Map<IRepository, IRepository> = new Map([
     [IUserRepository, new UserRepository(mockedDB)],
