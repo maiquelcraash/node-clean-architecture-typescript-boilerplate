@@ -1,11 +1,12 @@
 import { DependencyInjection } from './infrastructure/adapters/DependencyInjection.js';
 import { HttpServer, HttpServerOptions } from './infrastructure/adapters/http-server/HttpServer.js';
 import { dependencyMap } from './infrastructure/DependencyMap.js';
+import { repositoryMap } from './infrastructure/RepositoryMap.js';
 import { IConfig } from './interface-adapters/ports/IConfig.js';
 import { registerRoutes} from './interface-adapters/routes/Register.js';
 
-const dependencyInjection = new DependencyInjection(dependencyMap);
-const Config = dependencyInjection.resolveStatic<IConfig>(IConfig);
+const dependencyInjection = new DependencyInjection(dependencyMap, repositoryMap);
+const Config = dependencyInjection.resolveAdapterStatic<IConfig>(IConfig);
 
 function startServer(): void {
     const serverOptions: HttpServerOptions = {

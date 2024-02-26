@@ -1,16 +1,20 @@
+import { IRepository } from '../../domain/ports/repositories/IRepository.js';
 import { IAdapter } from '../../interface-adapters/ports/IAdapter.js';
 import { IDependencyInjection } from '../../interface-adapters/ports/IDependencyInjection.js';
 import { IPort } from '../../interface-adapters/ports/IPort.js';
 
 export class DependencyInjection extends IDependencyInjection implements IAdapter {
-    _dependencyMapping: Map<IPort, IAdapter>;
+    private _dependencyMapping: Map<IPort, IAdapter>;
+    private _repositoryMapping: Map<IRepository, IRepository>;
 
     /**
-     * @param {Map} dependencyMapping
+     * @param {Map<IPort, IAdapter>} dependencyMapping
+     * @param {Map<IRepository, IRepository>} repositoryMapping
      */
-    constructor(dependencyMapping: Map<IPort, IAdapter>) {
+    constructor(dependencyMapping: Map<IPort, IAdapter>, repositoryMapping: Map<IRepository, IRepository>) {
         super();
         this._dependencyMapping = dependencyMapping;
+        this._repositoryMapping = repositoryMapping;
     }
 
     /**
@@ -19,8 +23,8 @@ export class DependencyInjection extends IDependencyInjection implements IAdapte
      * @returns {new () => IAdapter} - The resolved adapter constructor.
      * @throws {Error} - If no adapter is found for the given port.
      */
-    resolveConstructor<Type>(port: IPort): new () => Type {
-        const adapter = this._resolve(port);
+    resolveAdapterConstructor<Type>(port: IPort): new () => Type {
+        const adapter = this._resolveAdapter(port);
         return adapter as new () => Type;
     }
 
@@ -30,14 +34,30 @@ export class DependencyInjection extends IDependencyInjection implements IAdapte
      * @returns {Type} - The resolved adapter static class.
      * @throws {Error} - If no adapter is found for the port.
      */
-    resolveStatic<Type>(port: IPort): Type {
-        const adapter = this._resolve(port);
+    resolveAdapterStatic<Type>(port: IPort): Type {
+        const adapter = this._resolveAdapter(port);
         return adapter as Type;
     }
 
-    private _resolve(port: IPort): IAdapter {
+    /**
+     * Resolves the concrete repository implementation for the given abstract repository.
+     * @param {IRepository} repositoryAbstract - The abstract repository to resolve.
+     * @return {Type} - The concrete repository implementation.
+     */
+    resolveRepository<Type>(repositoryAbstract: IRepository): Type {
+        const concreteRepository = this._resolveRepository(repositoryAbstract);
+        return concreteRepository as Type;
+    }
+
+    private _resolveAdapter(port: IPort): IAdapter {
         const adapter = this._dependencyMapping.get(port);
         if (!adapter) throw new Error(`No adapter found for port ${port}`);
         return adapter;
+    }
+
+    private _resolveRepository(repoAbstract: IRepository): IRepository {
+        const concreteRepository = this._repositoryMapping.get(repoAbstract);
+        if (!concreteRepository) throw new Error(`No repository found for ${repoAbstract}`);
+        return concreteRepository;
     }
 }
