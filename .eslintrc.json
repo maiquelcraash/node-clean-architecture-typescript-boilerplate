@@ -1,0 +1,125 @@
+{
+    "env": {
+        "browser": false,
+        "es6": true,
+        "node": true
+    },
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "sourceType": "module",
+        "ecmaVersion": 2020
+    },
+    "plugins": [
+        "@typescript-eslint",
+        "jest",
+        "boundaries",
+        "import"
+    ],
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:jest/recommended",
+        "prettier",
+        "plugin:boundaries/strict",
+        "plugin:import/recommended",
+        "plugin:import/typescript"
+    ],
+    "settings": {
+        "import/resolver": {
+            "typescript": true,
+            "node": true
+        },
+        "boundaries/elements": [
+            {
+                "type": "domain",
+                "pattern": "src/domain/**"
+            },
+            {
+                "type": "interface-adapters",
+                "pattern": "src/interface-adapters/**"
+            },
+            {
+                "type": "infrastructure",
+                "pattern": "src/infrastructure/**"
+            },
+            {
+                "type": "root",
+                "pattern": "src/**"
+            }
+        ],
+        "boundaries/include": [
+            "src/**"
+        ]
+    },
+    "rules": {
+        "boundaries/element-types": [
+            2,
+            {
+                "default": "disallow",
+                "rules": [
+                    {
+                        "from": "domain",
+                        "allow": [
+                            "domain"
+                        ]
+                    },
+                    {
+                        "from": "interface-adapters",
+                        "allow": [
+                            "domain",
+                            "interface-adapters"
+                        ]
+                    },
+                    {
+                        "from": "infrastructure",
+                        "allow": [
+                            "domain",
+                            "interface-adapters",
+                            "infrastructure"
+                        ]
+                    },
+                    {
+                        "from": "root",
+                        "allow": [
+                            "domain",
+                            "interface-adapters",
+                            "infrastructure",
+                            "root"
+                        ]
+                    }
+                ]
+            }
+        ],
+        "boundaries/external": [
+            2,
+            {
+                "default": "disallow",
+                "rules": [
+                    {
+                        "from": "infrastructure",
+                        "allow": "*"
+                    },
+                    {
+                        "from": "*",
+                        "allow": "node:*"
+                    }
+                ]
+            }
+        ],
+        "import/order": [
+            2,
+            {
+                "groups": [
+                    "builtin",
+                    "external",
+                    "internal"
+                ],
+                "newlines-between": "always",
+                "alphabetize": {
+                    "order": "asc",
+                    "caseInsensitive": true
+                }
+            }
+        ]
+    }
+}
