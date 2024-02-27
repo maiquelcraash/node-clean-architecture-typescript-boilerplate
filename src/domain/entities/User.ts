@@ -1,7 +1,7 @@
-import { BaseEntity } from './BaseEntity.js';
 import { UserDTO } from '../DTOs/UserDTO.js';
+import { IEntity } from '../ports/IEntity.js';
 
-export class User implements BaseEntity {
+export class User implements IEntity {
     private id: number;
     private name: string;
     private lastname: string;

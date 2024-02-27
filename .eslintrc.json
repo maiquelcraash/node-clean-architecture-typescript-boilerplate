@@ -13,7 +13,8 @@
         "@typescript-eslint",
         "jest",
         "boundaries",
-        "import"
+        "import",
+        "jest-extended"
     ],
     "extends": [
         "eslint:recommended",
@@ -120,6 +121,8 @@
                     "caseInsensitive": true
                 }
             }
-        ]
+        ],
+        "jest-extended/prefer-to-be-true": "warn",
+        "jest-extended/prefer-to-be-false": "error"
     }
 }
