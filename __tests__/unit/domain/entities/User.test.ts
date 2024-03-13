@@ -1,7 +1,7 @@
 import { UserDTO } from '../../../../src/domain/DTOs/UserDTO.js';
 import { User } from '../../../../src/domain/entities/User.js';
 
-describe('Domain > entities > User', () => {
+describe('domain > entities > User', () => {
     let instance: User;
 
     afterEach(() => {

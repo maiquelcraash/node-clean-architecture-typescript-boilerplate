@@ -17,12 +17,6 @@ export class UserPresenter implements IPresenter {
         });
     }
 
-    /**
-     * Converts the given data into a HTML string for presentation.
-     * Useful for Server Side Rendering
-     * @param {unknown} _data - The data to be converted into HTML.
-     * @returns {string} - The HTML string representing the data.
-     */
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     toPresentHTML(_data: unknown): string {
         throw 'Not implemented yet';

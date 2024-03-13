@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`infrastructure > DependencyMap When importing dependency map then should match snapshot 1`] = `
+{
+  "class IConfig extends IPort_js_1.IPort {
+    SERVER_HOST;
+    SERVER_PORT;
+    SERVER_SSL;
+    BODY_SIZE_LIMIT;
+    SERVER_SSL_CERT_PATH;
+    SERVER_SSL_PRIVATE_KEY_PATH;
+}": [Function],
+  "class IRouter extends IPort_js_1.IPort {
+}": [Function],
+}
+`;

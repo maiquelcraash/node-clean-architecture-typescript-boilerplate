@@ -1,15 +1,16 @@
+import { IUseCase } from '../../domain/ports/IUseCase.js';
 import { GetAllUsersUseCase } from '../../domain/use-cases/GetAllUsersUseCase.js';
 import { IRequest } from '../ports/http-server/IRequest.js';
 import { IResponse } from '../ports/http-server/IResponse.js';
 import { IPresenter } from '../ports/IPresenter.js';
 
 export type UserControllerOptions = {
-    getAllUsersUseCase: GetAllUsersUseCase,
+    getAllUsersUseCase: GetAllUsersUseCase | IUseCase,
     userPresenter: IPresenter
 }
 
 export class UserController {
-    private _getAllUsersUseCase: GetAllUsersUseCase;
+    private _getAllUsersUseCase: GetAllUsersUseCase | IUseCase;
     private _userPresenter: IPresenter;
 
     constructor({ getAllUsersUseCase, userPresenter }: UserControllerOptions) {

@@ -23,10 +23,12 @@ export class HttpServer extends IHttpServer {
     private _config: HttpServerOptions;
     private _nodeServer: http.Server | https.Server;
     private _isStarted: boolean;
+    private _isHttps: boolean;
 
     constructor(config: HttpServerOptions) {
         super();
         this._isStarted = false;
+        this._isHttps = false;
         this._config = config;
         this._app = express();
         this._initiateMiddlewares();
@@ -45,6 +47,7 @@ export class HttpServer extends IHttpServer {
                 key: fs.readFileSync(this._config.sslKeyPath),
                 cert: fs.readFileSync(this._config.sslCertPath),
             };
+            this._isHttps = true;
             return https.createServer(httpsOptions, this._app);
         }
 
@@ -59,7 +62,7 @@ export class HttpServer extends IHttpServer {
     }
 
     isHttps(): boolean {
-        return this._isStarted && this._nodeServer instanceof https.Server;
+        return this._isStarted && this._isHttps
     }
 
     use(endpointExpression: string, callback: IRouteCallback): void {

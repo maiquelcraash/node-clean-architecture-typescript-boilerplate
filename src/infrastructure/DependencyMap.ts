@@ -6,6 +6,6 @@ import { IConfig } from '../interface-adapters/ports/IConfig.js';
 import { IPort } from '../interface-adapters/ports/IPort.js';
 
 export const dependencyMap: Map<IPort, IAdapter> = new Map([
-    [IConfig, Config],
+    [IConfig as IPort, Config as IAdapter],
     [IRouter as IPort, Router as IAdapter],
 ]);
