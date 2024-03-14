@@ -2,9 +2,10 @@ import express from 'express';
 
 import { Request } from './Request.js';
 import { Response } from './Response.js';
+import { IAdapter } from '../../../domain/ports/IAdapter.js';
 import { IRouteCallback, IRouteMiddleware, IRouter } from '../../../interface-adapters/ports/http-server/IRouter.js';
 
-export class Router extends IRouter {
+export class Router extends IRouter implements IAdapter {
     private _rawRouter: express.Router;
 
     constructor() {

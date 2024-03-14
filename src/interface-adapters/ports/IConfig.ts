@@ -1,4 +1,4 @@
-import { IPort } from './IPort.js';
+import { IPort } from '../../domain/ports/IPort.js';
 
 /**
  * @abstract

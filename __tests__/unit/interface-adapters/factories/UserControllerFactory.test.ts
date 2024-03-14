@@ -1,7 +1,7 @@
+import { GetAllUsersUseCase } from '../../../../src/domain/use-cases/GetAllUsersUseCase.js';
+import { UserController } from '../../../../src/interface-adapters/controllers/UserController.js';
 import { factoryUserController } from '../../../../src/interface-adapters/factories/UserControllerFactory.js';
 import { IDependencyInjection } from '../../../../src/interface-adapters/ports/IDependencyInjection.js';
-import { UserController } from '../../../../src/interface-adapters/controllers/UserController.js';
-import { GetAllUsersUseCase } from '../../../../src/domain/use-cases/GetAllUsersUseCase.js';
 import { UserPresenter } from '../../../../src/interface-adapters/presenters/UserPresenter.js';
 
 describe('interface-adapters > factories > UserControllerFactory', () => {

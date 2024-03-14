@@ -1,4 +1,4 @@
-import { IAdapter } from '../../interface-adapters/ports/IAdapter.js';
+import { IAdapter } from '../../domain/ports/IAdapter.js';
 import { IConfig } from '../../interface-adapters/ports/IConfig.js';
 
 /**

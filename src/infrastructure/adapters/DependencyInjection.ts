@@ -1,7 +1,7 @@
+import { IAdapter } from '../../domain/ports/IAdapter.js';
+import { IPort } from '../../domain/ports/IPort.js';
 import { IRepository } from '../../domain/ports/repositories/IRepository.js';
-import { IAdapter } from '../../interface-adapters/ports/IAdapter.js';
 import { IDependencyInjection } from '../../interface-adapters/ports/IDependencyInjection.js';
-import { IPort } from '../../interface-adapters/ports/IPort.js';
 
 export class DependencyInjection extends IDependencyInjection implements IAdapter {
     private _dependencyMapping: Map<IPort, IAdapter>;

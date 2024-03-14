@@ -2,9 +2,10 @@ import { URL } from 'node:url';
 
 import express from 'express';
 
+import { IAdapter } from '../../../domain/ports/IAdapter.js';
 import { IResponse } from '../../../interface-adapters/ports/http-server/IResponse.js';
 
-export class Response extends IResponse {
+export class Response extends IResponse implements IAdapter {
     private _rawResponse: express.Response;
 
     constructor(rawResponse: express.Response) {

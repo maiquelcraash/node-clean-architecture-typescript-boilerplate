@@ -1,2 +1,4 @@
-export abstract class IRepository {
+import { IPort } from '../IPort.js';
+
+export abstract class IRepository extends IPort {
 }

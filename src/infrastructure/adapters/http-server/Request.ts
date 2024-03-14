@@ -1,8 +1,9 @@
 import express from 'express';
 
+import { IAdapter } from '../../../domain/ports/IAdapter.js';
 import { IRequest } from '../../../interface-adapters/ports/http-server/IRequest.js';
 
-export class Request extends IRequest {
+export class Request extends IRequest implements IAdapter {
     private _rawRequest: express.Request;
 
     constructor(rawRequest: express.Request) {

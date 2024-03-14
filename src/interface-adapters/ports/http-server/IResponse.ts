@@ -1,6 +1,6 @@
 import { URL } from 'node:url';
 
-import { IPort } from '../IPort.js';
+import { IPort } from '../../../domain/ports/IPort.js';
 
 export abstract class IResponse extends IPort {
     /**

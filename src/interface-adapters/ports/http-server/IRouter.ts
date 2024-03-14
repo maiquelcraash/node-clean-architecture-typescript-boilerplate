@@ -1,6 +1,6 @@
 import { IRequest } from './IRequest.js';
 import { IResponse } from './IResponse.js';
-import { IPort } from '../IPort.js';
+import { IPort } from '../../../domain/ports/IPort.js';
 
 export type IRouteCallback = (req: IRequest, res: IResponse, next: (err: unknown) => void) => Promise<void>;
 export type IRouteErrorCallback = (err: Error, req: IRequest, res: IResponse, next: () => void) => void;

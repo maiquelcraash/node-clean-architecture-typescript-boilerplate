@@ -4,9 +4,9 @@ jest.mock('../../../../src/interface-adapters/factories/UserControllerFactory.js
     };
 });
 
-import expressMocker from '../../../tools/mockers/external/ExpressMocker.js';
 import { factoryUserController } from '../../../../src/interface-adapters/factories/UserControllerFactory.js';
 import { factoryUserRouter } from '../../../../src/interface-adapters/routes/User.js';
+import expressMocker from '../../../tools/mockers/external/ExpressMocker.js';
 
 describe('src > interface-adapters > routes > User', () => {
     afterEach(() => {

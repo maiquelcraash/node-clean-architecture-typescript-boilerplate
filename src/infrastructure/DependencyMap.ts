@@ -1,9 +1,9 @@
 import { Config } from './adapters/Config.js'
 import { Router } from './adapters/http-server/Router.js';
+import { IAdapter } from '../domain/ports/IAdapter.js';
+import { IPort } from '../domain/ports/IPort.js';
 import { IRouter } from '../interface-adapters/ports/http-server/IRouter.js';
-import { IAdapter } from '../interface-adapters/ports/IAdapter.js';
 import { IConfig } from '../interface-adapters/ports/IConfig.js';
-import { IPort } from '../interface-adapters/ports/IPort.js';
 
 export const dependencyMap: Map<IPort, IAdapter> = new Map([
     [IConfig as IPort, Config as IAdapter],

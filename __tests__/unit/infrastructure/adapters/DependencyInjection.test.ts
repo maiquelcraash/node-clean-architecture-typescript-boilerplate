@@ -1,5 +1,5 @@
+import { IAdapter } from '../../../../src/domain/ports/IAdapter.js';
 import { DependencyInjection } from '../../../../src/infrastructure/adapters/DependencyInjection.js';
-import { IAdapter } from '../../../../src/interface-adapters/ports/IAdapter.js';
 
 describe('infrastructure > adapters > DependencyInjection', () => {
     class mockAdapter1Static implements IAdapter {

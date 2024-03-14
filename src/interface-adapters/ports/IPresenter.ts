@@ -1,4 +1,6 @@
-export interface IPresenter {
+import { IPort } from "../../domain/ports/IPort.js";
+
+export interface IPresenter extends IPort {
     /**
      * Converts an array of User objects to JSON format.
      * Use this method to present the data in correct shape

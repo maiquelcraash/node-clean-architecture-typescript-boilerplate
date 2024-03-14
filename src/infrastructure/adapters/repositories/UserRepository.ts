@@ -1,11 +1,13 @@
 import { UserDTO } from '../../../domain/DTOs/UserDTO.js';
 import { User } from '../../../domain/entities/User.js';
+import { IAdapter } from '../../../domain/ports/IAdapter.js';
 import { IUserRepository } from '../../../domain/ports/repositories/IUserRepository.js';
 
 type fakeDBType = { getUsers(): Promise<UserDTO[]> };
 
-export class UserRepository extends IUserRepository {
+export class UserRepository extends IUserRepository implements IAdapter {
     private _mockedDB: fakeDBType;
+
     constructor(mockedDB: fakeDBType) {
         super();
         this._mockedDB = mockedDB;

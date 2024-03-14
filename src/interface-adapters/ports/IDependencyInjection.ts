@@ -1,5 +1,5 @@
-import { IAdapter } from './IAdapter.js';
-import { IPort } from './IPort.js';
+import { IAdapter } from '../../domain/ports/IAdapter.js';
+import { IPort } from '../../domain/ports/IPort.js';
 import { IRepository } from '../../domain/ports/repositories/IRepository.js';
 
 export abstract class IDependencyInjection extends IPort {

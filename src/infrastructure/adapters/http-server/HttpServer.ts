@@ -7,6 +7,7 @@ import express from 'express';
 
 import { Request } from './Request.js';
 import { Response } from './Response.js';
+import { IAdapter } from '../../../domain/ports/IAdapter.js';
 import { IHttpServer } from '../../../interface-adapters/ports/http-server/IHttpServer.js';
 import { IRouteCallback, IRouteErrorCallback, IRouter } from '../../../interface-adapters/ports/http-server/IRouter.js';
 
@@ -18,7 +19,7 @@ export interface HttpServerOptions {
     bodySizeLimit: string | number
 }
 
-export class HttpServer extends IHttpServer {
+export class HttpServer extends IHttpServer implements IAdapter {
     private _app: express.Express;
     private _config: HttpServerOptions;
     private _nodeServer: http.Server | https.Server;

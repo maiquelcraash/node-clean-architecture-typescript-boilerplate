@@ -1,5 +1,5 @@
 import { IRouteCallback, IRouteErrorCallback, IRouter } from './IRouter.js';
-import { IPort } from '../IPort.js';
+import { IPort } from '../../../domain/ports/IPort.js';
 
 export abstract class IHttpServer extends IPort {
     /**
