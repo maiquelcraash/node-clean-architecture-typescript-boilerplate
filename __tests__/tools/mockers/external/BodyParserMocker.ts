@@ -13,10 +13,8 @@ class BodyParserMock implements IMock {
     mock(): void {
         jest.mock('body-parser', () => {
             return {
-                default: {
-                    json: this.fn.json,
-                    urlencoded: this.fn.urlencoded,
-                },
+                json: this.fn.json,
+                urlencoded: this.fn.urlencoded,
             };
         });
     }

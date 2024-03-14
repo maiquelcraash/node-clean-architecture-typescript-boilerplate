@@ -28,14 +28,11 @@ class ExpressMocker implements IMock {
 
     mock(): void {
         jest.mock('express', () => {
-            const mockedModule = {
-                default: () => {
-                    return { use: this.fn.use };
-                },
+            const mockedModule = () => {
+                return { use: this.fn.use };
             };
 
-            // @ts-expect-error injecting fake named module
-            mockedModule.default.Router = jest.fn().mockReturnValue({
+            mockedModule.Router = jest.fn().mockReturnValue({
                 use: this.fn.routerUse,
                 all: this.fn.routerAll,
                 get: this.fn.routerGet,

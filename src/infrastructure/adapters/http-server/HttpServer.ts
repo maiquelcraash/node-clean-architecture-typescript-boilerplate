@@ -81,4 +81,8 @@ export class HttpServer extends IHttpServer implements IAdapter {
     useRouter(endpointExpression: string, router: IRouter): void {
         this._app.use(endpointExpression, router.getRawRouter() as express.IRouter);
     }
+
+    getRawServer(): unknown {
+        return this._app;
+    }
 }

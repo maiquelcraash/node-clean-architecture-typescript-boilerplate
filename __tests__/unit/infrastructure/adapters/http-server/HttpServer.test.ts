@@ -231,4 +231,14 @@ describe('infrastructure > adapters > http-server > HttpServer', () => {
             expect(ExpressMocker.fn.use).toHaveBeenCalledWith('mocked-endpoint', 'mocked-raw-router');
         });
     });
+
+    describe('getRawServer', () => {
+        beforeEach(() => {
+            instance = new HttpServer(mockServerOptions);
+        });
+
+        test('then should retrieve raw server', () => {
+            expect(instance.getRawServer()).toEqual(instance['_app']);
+        });
+    });
 });

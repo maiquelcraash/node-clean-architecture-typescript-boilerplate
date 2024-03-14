@@ -41,4 +41,11 @@ export abstract class IHttpServer extends IPort {
      * @returns {void}
      */
     abstract isHttps(): boolean;
+
+    /**
+     * Returns the raw server instance from the external library you have chosen, Eg: Express app
+     * @abstract
+     * @returns {unknown} The raw server app
+     */
+    abstract getRawServer(): unknown;
 }

@@ -13,17 +13,13 @@ class HttpAndHttpsMocker implements IMock {
     mock(): void {
         jest.mock('http', () => {
             return {
-                default: {
-                    createServer: this.fn.createServerFn,
-                },
+                createServer: this.fn.createServerFn,
             };
         });
 
         jest.mock('https', () => {
             return {
-                default: {
-                    createServer: this.fn.createServerFn,
-                },
+                createServer: this.fn.createServerFn,
             };
         });
     }

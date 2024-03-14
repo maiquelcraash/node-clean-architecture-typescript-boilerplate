@@ -13,9 +13,7 @@ class FsMocker implements IMock {
     mock(): void {
         jest.mock('fs', () => {
             return {
-                default: {
-                    readFileSync: this.fn.readFileSync,
-                },
+                readFileSync: this.fn.readFileSync,
             };
         });
     }
