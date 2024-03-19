@@ -4,8 +4,8 @@ exports[`infrastructure > RepositoryMap When importing repository map then shoul
 {
   "class IUserRepository extends IRepository_js_1.IRepository {
 }": UserRepository {
-    "_mockedDB": {
-      "getUsers": [Function],
+    "_userDAO": UserDAO {
+      "_db": FakeDB {},
     },
   },
 }
