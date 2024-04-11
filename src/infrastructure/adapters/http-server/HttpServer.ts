@@ -11,7 +11,7 @@ import { IAdapter } from '../../../domain/ports/IAdapter.js';
 import { IHttpServer } from '../../../interface-adapters/ports/http-server/IHttpServer.js';
 import { IRouteCallback, IRouteErrorCallback, IRouter } from '../../../interface-adapters/ports/http-server/IRouter.js';
 
-export interface HttpServerOptions {
+export type HttpServerOptions = {
     port: number,
     isHttps: boolean,
     sslKeyPath: string | undefined,
