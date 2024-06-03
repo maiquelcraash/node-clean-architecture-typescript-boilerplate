@@ -1,18 +1,9 @@
+import { BaseMocker } from '../BaseMocker.js';
 import { IMock } from '../IMock.js';
 
-class ExpressMocker implements IMock {
-    public fn: {
-        use: jest.Mock,
-        routerUse: jest.Mock,
-        routerAll: jest.Mock,
-        routerGet: jest.Mock,
-        routerPatch: jest.Mock,
-        routerPut: jest.Mock,
-        routerPost: jest.Mock,
-        routerDelete: jest.Mock
-    };
-
+class ExpressMocker extends BaseMocker implements IMock {
     constructor() {
+        super();
         this.fn = {
             use: jest.fn(),
             routerUse: jest.fn(),
@@ -25,7 +16,9 @@ class ExpressMocker implements IMock {
         };
     };
 
-
+    /**
+     * @override
+     */
     mock(): void {
         jest.mock('express', () => {
             const mockedModule = () => {
@@ -44,15 +37,6 @@ class ExpressMocker implements IMock {
 
             return mockedModule;
         });
-    }
-
-    reset(): void {
-        let key: keyof typeof this.fn;
-        for (key in this.fn) {
-            const func = this.fn[key];
-            func.mockClear();
-            func.mockReset();
-        }
     }
 }
 

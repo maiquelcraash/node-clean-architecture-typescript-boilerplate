@@ -1,15 +1,17 @@
+import { BaseMocker } from '../BaseMocker.js';
 import { IMock } from '../IMock.js';
 
-class HttpAndHttpsMocker implements IMock {
-    public fn: { createServerFn: jest.Mock };
-
+class HttpAndHttpsMocker extends BaseMocker implements IMock {
     constructor() {
+        super();
         this.fn = {
             createServerFn: jest.fn(),
         };
     }
 
-
+    /**
+     * @override
+     */
     mock(): void {
         jest.mock('http', () => {
             return {
@@ -22,15 +24,6 @@ class HttpAndHttpsMocker implements IMock {
                 createServer: this.fn.createServerFn,
             };
         });
-    }
-
-    reset(): void {
-        let key: keyof typeof this.fn;
-        for (key in this.fn) {
-            const func = this.fn[key];
-            func.mockClear();
-            func.mockReset();
-        }
     }
 }
 

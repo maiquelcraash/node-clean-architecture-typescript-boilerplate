@@ -2,7 +2,7 @@
 import ExpressMocker from '../../../../tools/mockers/external/ExpressMocker.js';
 import BodyParserMocker from '../../../../tools/mockers/external/BodyParserMocker.js';
 import HttpAndHttpsMocker from '../../../../tools/mockers/external/HttpAndHttpsMocker.js';
-import FsMocker from '../../../../tools/mockers/external/FsMocker.js';
+import FsMocker from '../../../../tools/mockers/node/FsMocker.js';
 import { HttpServer, HttpServerOptions } from '../../../../../src/infrastructure/adapters/http-server/HttpServer.js';
 import { IRequest } from '../../../../../src/interface-adapters/ports/http-server/IRequest.js';
 import { IResponse } from '../../../../../src/interface-adapters/ports/http-server/IResponse.js';

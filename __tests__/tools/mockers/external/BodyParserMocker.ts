@@ -1,15 +1,18 @@
+import { BaseMocker } from '../BaseMocker.js';
 import { IMock } from '../IMock.js';
 
-class BodyParserMock implements IMock {
-    public fn: { json: jest.Mock, urlencoded: jest.Mock, };
-
+class BodyParserMock extends BaseMocker implements IMock {
     constructor() {
+        super();
         this.fn = {
             json: jest.fn(),
             urlencoded: jest.fn(),
         };
     }
 
+    /**
+     * @override
+     */
     mock(): void {
         jest.mock('body-parser', () => {
             return {
@@ -18,16 +21,6 @@ class BodyParserMock implements IMock {
             };
         });
     }
-
-    reset(): void {
-        let key: keyof typeof this.fn;
-        for (key in this.fn) {
-            const func = this.fn[key];
-            func.mockClear();
-            func.mockReset();
-        }
-    }
-
 }
 
 const bodyParserMock = new BodyParserMock();
