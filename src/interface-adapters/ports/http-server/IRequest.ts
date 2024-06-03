@@ -6,21 +6,21 @@ export abstract class IRequest extends IPort {
      * @abstract
      * @return {object}
      */
-    abstract getParams(): object
+    abstract getParams(): Record<string, unknown>
 
     /**
      * Returns the body of request
      * @abstract
      * @return {object}
      */
-    abstract getBody(): object
+    abstract getBody(): Record<string, unknown>
 
     /**
      * Retrieves the query object extracted from request URL
      * @abstract
      * @returns {object} The query object.
      */
-    abstract getQuery(): object
+    abstract getQuery(): Record<string, unknown>
 
     /**
      * Returns the method name.

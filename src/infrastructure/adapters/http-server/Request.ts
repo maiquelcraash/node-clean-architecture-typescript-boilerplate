@@ -11,15 +11,15 @@ export class Request extends IRequest implements IAdapter {
         this._rawRequest = rawRequest;
     }
 
-    getParams(): object {
+    getParams(): Record<string, unknown> {
         return this._rawRequest.params;
     }
 
-    getBody(): object {
+    getBody(): Record<string, unknown> {
         return this._rawRequest.body;
     }
 
-    getQuery(): object {
+    getQuery(): Record<string, unknown> {
         return this._rawRequest.query;
     }
 
