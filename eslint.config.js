@@ -28,7 +28,6 @@ export default [
             'eslint:recommended',
             'plugin:@typescript-eslint/recommended',
             'plugin:jest/recommended',
-            'prettier',
             'plugin:boundaries/strict',
             'plugin:import/recommended',
             'plugin:import/typescript',
