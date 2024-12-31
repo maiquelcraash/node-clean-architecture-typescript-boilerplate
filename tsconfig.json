@@ -2,9 +2,7 @@
     "compilerOptions": {
         "target": "es2022",
         "module": "node16",
-        "lib": [
-            "ES2022"
-        ],
+        "lib": ["ES2022"],
         "moduleResolution": "node16",
         "rootDir": ".",
         "outDir": "build",
@@ -23,10 +21,6 @@
         "resolveJsonModule": true,
         "esModuleInterop": true
     },
-    "include": [
-        "src/**/*", "__tests__/**/*", "package.json"
-    ],
-    "files": [
-        "global.d.ts"
-    ],
+    "include": ["src/**/*", "__tests__/**/*", "package.json"],
+    "files": ["global.d.ts"]
 }
